@@ -1,18 +1,239 @@
----
-layout: default
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diego Gomez — Machine Learning Engineer</title>
+  <meta name="description" content="Diego Gomez is a software engineer specializing in machine learning at Google, based in Paris. Building generative models, reinforcement learning, and tools for understanding LLMs." />
 
-<div class="posts">
-  {% for post in site.posts %}
-    <article class="post">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Diego Gomez — Machine Learning Engineer" />
+  <meta property="og:description" content="Software engineer specializing in machine learning at Google, based in Paris." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://diegoalejogm.github.io" />
+  <meta property="og:image" content="https://avatars.githubusercontent.com/u/4405152?v=4" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:creator" content="@diegoalejogm" />
 
-      <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👋</text></svg>" />
 
-      <div class="entry">
-        {{ post.excerpt }}
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:ital,opsz@0,6..72;1,6..72&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary">
+      <a class="nav-brand" href="#top">Diego&nbsp;Gomez</a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#writing">Writing</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle color theme">
+        <span class="theme-toggle-icon" aria-hidden="true"></span>
+      </button>
+    </nav>
+  </header>
+
+  <main id="main">
+    <!-- Hero -->
+    <section class="hero" id="top">
+      <div class="container hero-inner">
+        <div class="hero-text">
+          <p class="eyebrow">Machine Learning Engineer · Paris, France</p>
+          <h1>Hi, I'm Diego.<br />I build systems that <span class="accent">learn</span>.</h1>
+          <p class="lede">
+            I'm a senior software engineer specializing in machine learning at
+            <strong>Google</strong>. I work on the messy, interesting parts of
+            modern AI — generative models, reinforcement learning, and tools for
+            understanding what large language models are actually doing.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contact">Get in touch</a>
+            <a class="btn btn-ghost" href="https://github.com/diegoalejogm" target="_blank" rel="noopener">
+              View GitHub
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M17 7H8M17 7v9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="hero-photo">
+          <img src="https://avatars.githubusercontent.com/u/4405152?v=4" alt="Portrait of Diego Gomez" width="220" height="220" loading="eager" />
+        </div>
       </div>
+    </section>
 
-      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
-    </article>
-  {% endfor %}
-</div>
+    <!-- About -->
+    <section class="section" id="about">
+      <div class="container">
+        <h2 class="section-title"><span class="section-num">01</span> About</h2>
+        <div class="about-grid">
+          <div class="about-prose">
+            <p>
+              I'm drawn to problems where learning from data beats hand-written
+              rules. Over the years that's meant teaching networks to translate
+              images between domains, training agents to play games from raw
+              pixels, and — most recently — probing the internal behavior of
+              language models.
+            </p>
+            <p>
+              I grew up in Colombia and studied computing at the Universidad de
+              los Andes, where I first got hooked on machine learning through
+              astronomy research. Since then I've worked across Google, including
+              time on YouTube, and now build from Paris.
+            </p>
+            <p>
+              My open-source work has been used and starred by thousands of
+              people learning the same things I was once figuring out. I care
+              about making hard ideas legible, whether that's a clean
+              implementation, a clear diagram, or a well-written explainer.
+            </p>
+          </div>
+          <aside class="about-facts">
+            <dl>
+              <div>
+                <dt>Currently</dt>
+                <dd>Senior ML Engineer @ Google</dd>
+              </div>
+              <div>
+                <dt>Previously</dt>
+                <dd>YouTube · Universidad de los Andes</dd>
+              </div>
+              <div>
+                <dt>Based in</dt>
+                <dd>Paris, France 🇫🇷 · from Colombia 🇨🇴</dd>
+              </div>
+              <div>
+                <dt>Focus</dt>
+                <dd>Generative models · RL · LLM interpretability</dd>
+              </div>
+              <div>
+                <dt>Tools</dt>
+                <dd>PyTorch · TensorFlow · Python</dd>
+              </div>
+            </dl>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- Work / Projects -->
+    <section class="section section-alt" id="work">
+      <div class="container">
+        <h2 class="section-title"><span class="section-num">02</span> Selected work</h2>
+        <p class="section-sub">Open-source projects, in code and in writing.</p>
+
+        <ul class="projects">
+          <li class="project">
+            <div class="project-head">
+              <h3><a href="https://github.com/diegoalejogm/gans" target="_blank" rel="noopener">GANs</a></h3>
+              <span class="stars" title="GitHub stars">★ 844</span>
+            </div>
+            <p>Generative Adversarial Networks implemented from scratch in both PyTorch and TensorFlow — a widely-used reference for people learning to build generative models.</p>
+            <ul class="tags"><li>PyTorch</li><li>TensorFlow</li><li>Generative</li></ul>
+          </li>
+
+          <li class="project">
+            <div class="project-head">
+              <h3><a href="https://github.com/diegoalejogm/Reinforcement-Learning" target="_blank" rel="noopener">Reinforcement Learning</a></h3>
+              <span class="stars" title="GitHub stars">★ 160</span>
+            </div>
+            <p>Clean Python implementations of the core RL algorithms, following Sutton &amp; Barto's classic textbook — dynamic programming, Monte Carlo, temporal difference, and more.</p>
+            <ul class="tags"><li>Python</li><li>RL</li><li>Education</li></ul>
+          </li>
+
+          <li class="project">
+            <div class="project-head">
+              <h3><a href="https://github.com/diegoalejogm/deep-q-learning" target="_blank" rel="noopener">Deep Q-Learning</a></h3>
+              <span class="stars" title="GitHub stars">★ 85</span>
+            </div>
+            <p>A PyTorch implementation of Deep Q-Learning with experience replay, training an agent to play Atari games directly from pixels.</p>
+            <ul class="tags"><li>PyTorch</li><li>Deep RL</li><li>Atari</li></ul>
+          </li>
+
+          <li class="project">
+            <div class="project-head">
+              <h3><a href="https://github.com/diegoalejogm/persona_vectors" target="_blank" rel="noopener">Persona Vectors</a></h3>
+              <span class="stars" title="research">research</span>
+            </div>
+            <p>Monitoring and controlling character traits in language models — work on steering and understanding the personas that emerge inside LLMs.</p>
+            <ul class="tags"><li>LLMs</li><li>Interpretability</li><li>Safety</li></ul>
+          </li>
+
+          <li class="project">
+            <div class="project-head">
+              <h3><a href="https://github.com/diegoalejogm/crts-transient-recognition" target="_blank" rel="noopener">Transient Recognition</a></h3>
+              <span class="stars" title="research">research</span>
+            </div>
+            <p>Astronomical transient recognition using machine learning on the Catalina Real-Time Survey dataset — finding the signal in the night sky.</p>
+            <ul class="tags"><li>ML</li><li>Astronomy</li><li>Classification</li></ul>
+          </li>
+
+          <li class="project">
+            <div class="project-head">
+              <h3><a href="https://github.com/diegoalejogm" target="_blank" rel="noopener">More on GitHub</a></h3>
+              <span class="stars">→</span>
+            </div>
+            <p>Notebooks, nanodegree solutions, and experiments. The full archive of what I've been building and breaking lives on my profile.</p>
+            <ul class="tags"><li>Explore</li></ul>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Writing -->
+    <section class="section" id="writing">
+      <div class="container">
+        <h2 class="section-title"><span class="section-num">03</span> Writing</h2>
+        <p class="section-sub">Explaining the ideas I find most interesting.</p>
+        <ul class="writing-list">
+          <li>
+            <a href="https://github.com/diegoalejogm/gans" target="_blank" rel="noopener">
+              <span class="writing-title">Cyclic Generative Networks: CycleGANs</span>
+              <span class="writing-desc">How two adversarial networks learn to translate horses into zebras — and what cycle-consistency really buys you.</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://medium.com/ai-society/gans-from-scratch-1-a-deep-introduction-with-code-in-pytorch-and-tensorflow-cb03cdcdba0f" target="_blank" rel="noopener">
+              <span class="writing-title">GANs from Scratch</span>
+              <span class="writing-desc">A deep, code-first introduction to generative adversarial networks in PyTorch and TensorFlow.</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section section-alt" id="contact">
+      <div class="container contact-inner">
+        <h2 class="section-title"><span class="section-num">04</span> Get in touch</h2>
+        <p class="contact-lede">
+          I'm always happy to talk about machine learning, open source, or
+          interesting problems. The fastest way to reach me is email.
+        </p>
+        <a class="btn btn-primary btn-lg" href="mailto:diegoalejogm@gmail.com">diegoalejogm@gmail.com</a>
+        <div class="social">
+          <a href="https://github.com/diegoalejogm" target="_blank" rel="noopener" aria-label="GitHub">GitHub</a>
+          <a href="https://www.linkedin.com/in/diegoalejogm" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a>
+          <a href="https://twitter.com/diegoalejogm" target="_blank" rel="noopener" aria-label="Twitter">Twitter</a>
+          <a href="https://diegogom.com" target="_blank" rel="noopener" aria-label="Personal website">diegogom.com</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span>© <span id="year"></span> Diego Gomez</span>
+      <span>Built with care in Paris.</span>
+    </div>
+  </footer>
+
+  <script src="main.js" defer></script>
+</body>
+</html>
