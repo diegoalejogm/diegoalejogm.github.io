@@ -1,8 +1,8 @@
 # diegoalejogm.github.io
 
-Personal website of **Diego Gomez** — Senior Machine Learning Engineer.
+Personal website of **Diego Gomez**, Senior Machine Learning Engineer.
 
-A single-page, dependency-free static site. No build step, no framework — just
+A single-page, dependency-free static site. No build step, no framework, just
 HTML, CSS, and a touch of vanilla JavaScript, served directly by GitHub Pages.
 
 ## Structure
