@@ -4,11 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Diego Gomez — Machine Learning Engineer</title>
-  <meta name="description" content="Diego Gomez is a software engineer specializing in machine learning at Google, based in Paris. Building generative models, reinforcement learning, and tools for understanding LLMs." />
+  <meta name="description" content="Diego Gomez is a senior machine learning engineer at Google, based in Paris. He trains multimodal LLMs for safety and understanding at YouTube, and builds open-source ML." />
 
   <!-- Open Graph -->
   <meta property="og:title" content="Diego Gomez — Machine Learning Engineer" />
-  <meta property="og:description" content="Software engineer specializing in machine learning at Google, based in Paris." />
+  <meta property="og:description" content="Senior machine learning engineer at Google, based in Paris. Multimodal LLMs for YouTube safety and understanding." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://diegoalejogm.github.io" />
   <meta property="og:image" content="https://avatars.githubusercontent.com/u/4405152?v=4" />
@@ -31,6 +31,7 @@
       <a class="nav-brand" href="#top">Diego&nbsp;Gomez</a>
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
         <li><a href="#work">Work</a></li>
         <li><a href="#writing">Writing</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -49,10 +50,10 @@
           <p class="eyebrow">Machine Learning Engineer · Paris, France</p>
           <h1>Hi, I'm Diego.<br />I build systems that <span class="accent">learn</span>.</h1>
           <p class="lede">
-            I'm a senior software engineer specializing in machine learning at
-            <strong>Google</strong>. I work on the messy, interesting parts of
-            modern AI — generative models, reinforcement learning, and tools for
-            understanding what large language models are actually doing.
+            I'm a senior machine learning engineer at <strong>Google</strong>,
+            where I train multimodal LLMs that keep <strong>YouTube</strong> safe
+            and understandable at planetary scale. Outside work I build
+            open-source ML that thousands of people learn from.
           </p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="#contact">Get in touch</a>
@@ -76,16 +77,16 @@
           <div class="about-prose">
             <p>
               I'm drawn to problems where learning from data beats hand-written
-              rules. Over the years that's meant teaching networks to translate
-              images between domains, training agents to play games from raw
-              pixels, and — most recently — probing the internal behavior of
-              language models.
+              rules. At Google I train and fine-tune multimodal LLMs across 40+
+              safety and quality tasks for YouTube — building joint embeddings
+              over video, text, audio, and metadata that power the platform's
+              next generation of safety and understanding systems.
             </p>
             <p>
               I grew up in Colombia and studied computing at the Universidad de
               los Andes, where I first got hooked on machine learning through
-              astronomy research. Since then I've worked across Google, including
-              time on YouTube, and now build from Paris.
+              astronomy research — co-authoring a paper in <em>The Astrophysical
+              Journal</em> along the way. I now build from Paris.
             </p>
             <p>
               My open-source work has been used and starred by thousands of
@@ -98,11 +99,11 @@
             <dl>
               <div>
                 <dt>Currently</dt>
-                <dd>Senior ML Engineer @ Google</dd>
+                <dd>Senior ML Engineer @ Google · YouTube</dd>
               </div>
               <div>
-                <dt>Previously</dt>
-                <dd>YouTube · Universidad de los Andes</dd>
+                <dt>Education</dt>
+                <dd>Universidad de los Andes, Colombia</dd>
               </div>
               <div>
                 <dt>Based in</dt>
@@ -110,11 +111,11 @@
               </div>
               <div>
                 <dt>Focus</dt>
-                <dd>Generative models · RL · LLM interpretability</dd>
+                <dd>Multimodal LLMs · Safety · Generative models</dd>
               </div>
               <div>
                 <dt>Tools</dt>
-                <dd>PyTorch · TensorFlow · Python</dd>
+                <dd>PyTorch · TensorFlow · Python · C++</dd>
               </div>
             </dl>
           </aside>
@@ -122,11 +123,59 @@
       </div>
     </section>
 
-    <!-- Work / Projects -->
-    <section class="section section-alt" id="work">
+    <!-- Experience -->
+    <section class="section section-alt" id="experience">
       <div class="container">
-        <h2 class="section-title"><span class="section-num">02</span> Selected work</h2>
-        <p class="section-sub">Open-source projects, in code and in writing.</p>
+        <h2 class="section-title"><span class="section-num">02</span> Experience</h2>
+        <p class="section-sub">Where I've spent my time, and what I shipped there.</p>
+
+        <ol class="timeline">
+          <li class="role">
+            <div class="role-head">
+              <h3>Senior Machine Learning Engineer</h3>
+              <span class="role-org">Google · YouTube</span>
+            </div>
+            <ul class="role-points">
+              <li>Train and fine-tune multimodal LLMs across <strong>40+ safety and quality tasks</strong>, improving AUCPR, precision, and robustness across global content categories.</li>
+              <li>Develop joint embeddings over video, text, audio, and metadata powering YouTube's next-generation safety and understanding systems.</li>
+              <li>Lead multi-task training design — gradient balancing, sampling strategies, representation alignment, and long-horizon stability.</li>
+              <li>Lifted evaluation quality by <strong>+30% rater agreement</strong> and <strong>+20% recall</strong>, and contributed to a <strong>50% reduction in unsafe Shorts impressions</strong>.</li>
+              <li>Maintain C++/Python training and inference pipelines for reproducible large-scale experimentation and production deployment; mentor engineers and interns.</li>
+            </ul>
+          </li>
+
+          <li class="role">
+            <div class="role-head">
+              <h3>Machine Learning Engineer</h3>
+              <span class="role-org">Google · YouTube</span>
+            </div>
+            <ul class="role-points">
+              <li>Built YouTube's responsibility and appropriateness classifiers (violence, hate, adult/sexual, borderline) powering policy enforcement and ranking.</li>
+              <li>Launched YouTube's <strong>first image classifiers trained on TPUs</strong> via transfer learning (Keras/TFX), scaling to billions of thumbnails.</li>
+              <li>Designed continuous evaluation infrastructure, shortening iteration cycles and raising quality across classifiers.</li>
+            </ul>
+          </li>
+
+          <li class="role">
+            <div class="role-head">
+              <h3>Researcher &amp; Teaching Assistant</h3>
+              <span class="role-org">Universidad de los Andes</span>
+            </div>
+            <ul class="role-points">
+              <li>Co-authored <em>MANTRA</em>, a machine-learning reference dataset for astronomical transient recognition, published in <em>The Astrophysical Journal Supplement Series</em>.</li>
+              <li>Open-sourced an annotated set of 4,869 transient and 71,207 non-transient light curves from the Catalina Real-Time Transient Survey.</li>
+              <li>Taught Data Structures, Algorithms &amp; OOP in Java, and Calculus I — guiding entry-level students and reviewing their code.</li>
+            </ul>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Work / Projects -->
+    <section class="section" id="work">
+      <div class="container">
+        <h2 class="section-title"><span class="section-num">03</span> Selected work</h2>
+        <p class="section-sub">Open-source projects, used and starred by thousands.</p>
 
         <ul class="projects">
           <li class="project">
@@ -187,11 +236,17 @@
     </section>
 
     <!-- Writing -->
-    <section class="section" id="writing">
+    <section class="section section-alt" id="writing">
       <div class="container">
-        <h2 class="section-title"><span class="section-num">03</span> Writing</h2>
+        <h2 class="section-title"><span class="section-num">04</span> Writing &amp; research</h2>
         <p class="section-sub">Explaining the ideas I find most interesting.</p>
         <ul class="writing-list">
+          <li>
+            <a href="https://iopscience.iop.org/article/10.3847/1538-4365/aba267/meta" target="_blank" rel="noopener">
+              <span class="writing-title">MANTRA — A Machine-learning Reference Dataset for Astronomical Transients <span class="writing-badge">Paper</span></span>
+              <span class="writing-desc">Published in The Astrophysical Journal Supplement Series. An open dataset of ~76k labeled light curves from the Catalina Real-Time Transient Survey, benchmarked across SVMs, random forests, and neural networks.</span>
+            </a>
+          </li>
           <li>
             <a href="https://github.com/diegoalejogm/gans" target="_blank" rel="noopener">
               <span class="writing-title">Cyclic Generative Networks: CycleGANs</span>
@@ -204,14 +259,20 @@
               <span class="writing-desc">A deep, code-first introduction to generative adversarial networks in PyTorch and TensorFlow.</span>
             </a>
           </li>
+          <li>
+            <a href="https://medium.com/@diegoalejogm0" target="_blank" rel="noopener">
+              <span class="writing-title">More on Medium →</span>
+              <span class="writing-desc">Essays and tutorials on machine learning and the ideas behind it.</span>
+            </a>
+          </li>
         </ul>
       </div>
     </section>
 
     <!-- Contact -->
-    <section class="section section-alt" id="contact">
+    <section class="section" id="contact">
       <div class="container contact-inner">
-        <h2 class="section-title"><span class="section-num">04</span> Get in touch</h2>
+        <h2 class="section-title"><span class="section-num">05</span> Get in touch</h2>
         <p class="contact-lede">
           I'm always happy to talk about machine learning, open source, or
           interesting problems. The fastest way to reach me is email.
@@ -220,6 +281,7 @@
         <div class="social">
           <a href="https://github.com/diegoalejogm" target="_blank" rel="noopener" aria-label="GitHub">GitHub</a>
           <a href="https://www.linkedin.com/in/diegoalejogm" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a>
+          <a href="https://medium.com/@diegoalejogm0" target="_blank" rel="noopener" aria-label="Medium">Medium</a>
           <a href="https://twitter.com/diegoalejogm" target="_blank" rel="noopener" aria-label="Twitter">Twitter</a>
           <a href="https://diegogom.com" target="_blank" rel="noopener" aria-label="Personal website">diegogom.com</a>
         </div>
