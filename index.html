@@ -5,15 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Diego Gomez — Machine Learning Engineer</title>
   <meta name="description" content="Diego Gomez is a senior machine learning engineer at Google, based in Paris. He trains multimodal LLMs for safety and understanding at YouTube, and builds open-source ML." />
+  <meta name="author" content="Diego Gomez" />
+  <link rel="canonical" href="https://diegoalejogm.github.io/" />
+  <meta name="theme-color" content="#fbfbf9" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0e0e10" media="(prefers-color-scheme: dark)" />
 
   <!-- Open Graph -->
   <meta property="og:title" content="Diego Gomez — Machine Learning Engineer" />
   <meta property="og:description" content="Senior machine learning engineer at Google, based in Paris. Multimodal LLMs for YouTube safety and understanding." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://diegoalejogm.github.io" />
+  <meta property="og:url" content="https://diegoalejogm.github.io/" />
+  <meta property="og:site_name" content="Diego Gomez" />
+  <meta property="og:locale" content="en_US" />
   <meta property="og:image" content="https://avatars.githubusercontent.com/u/4405152?v=4" />
+  <meta property="og:image:alt" content="Diego Gomez" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:creator" content="@diegoalejogm" />
+  <meta name="twitter:title" content="Diego Gomez — Machine Learning Engineer" />
+  <meta name="twitter:description" content="Senior machine learning engineer at Google, based in Paris." />
+  <meta name="twitter:image" content="https://avatars.githubusercontent.com/u/4405152?v=4" />
 
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👋</text></svg>" />
 
@@ -22,23 +32,55 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:ital,opsz@0,6..72;1,6..72&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="styles.css" />
+
+  <!-- Structured data: who this site is about -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Diego Gomez",
+    "url": "https://diegoalejogm.github.io/",
+    "image": "https://avatars.githubusercontent.com/u/4405152?v=4",
+    "jobTitle": "Senior Machine Learning Engineer",
+    "worksFor": { "@type": "Organization", "name": "Google" },
+    "homeLocation": { "@type": "Place", "name": "Paris, France" },
+    "alumniOf": { "@type": "CollegeOrUniversity", "name": "Universidad de los Andes" },
+    "knowsAbout": ["Machine Learning", "Multimodal LLMs", "Generative Adversarial Networks", "Reinforcement Learning", "Deep Learning"],
+    "email": "mailto:diegoalejogm@gmail.com",
+    "sameAs": [
+      "https://github.com/diegoalejogm",
+      "https://www.linkedin.com/in/diegoalejogm",
+      "https://twitter.com/diegoalejogm",
+      "https://medium.com/@diegoalejogm0",
+      "https://diegogom.com"
+    ]
+  }
+  </script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-header">
+    <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
     <nav class="nav" aria-label="Primary">
       <a class="nav-brand" href="#top">Diego&nbsp;Gomez</a>
-      <ul class="nav-links">
+      <ul class="nav-links" id="navLinks">
         <li><a href="#about">About</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#work">Work</a></li>
         <li><a href="#writing">Writing</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle color theme">
-        <span class="theme-toggle-icon" aria-hidden="true"></span>
-      </button>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle color theme">
+          <span class="theme-toggle-icon" aria-hidden="true"></span>
+        </button>
+        <button class="nav-toggle" id="navToggle" type="button" aria-label="Open menu" aria-controls="navLinks" aria-expanded="false">
+          <span class="nav-toggle-bar" aria-hidden="true"></span>
+          <span class="nav-toggle-bar" aria-hidden="true"></span>
+          <span class="nav-toggle-bar" aria-hidden="true"></span>
+        </button>
+      </div>
     </nav>
   </header>
 
@@ -57,8 +99,8 @@
           </p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="#contact">Get in touch</a>
-            <a class="btn btn-ghost" href="https://github.com/diegoalejogm" target="_blank" rel="noopener">
-              View GitHub
+            <a class="btn btn-ghost" id="resumeLink" href="https://www.linkedin.com/in/diegoalejogm" target="_blank" rel="noopener">
+              Résumé
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M17 7H8M17 7v9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
           </div>
@@ -185,7 +227,7 @@
             <div class="feature-body">
               <div class="project-head">
                 <h3><a href="https://github.com/diegoalejogm/gans" target="_blank" rel="noopener">GANs</a></h3>
-                <span class="stars" title="GitHub stars">★ 844</span>
+                <span class="stars" title="GitHub stars" data-repo="diegoalejogm/gans">★ 844</span>
               </div>
               <p>Generative Adversarial Networks implemented from scratch in both PyTorch and TensorFlow. The animation shows a DCGAN sharpening random noise into handwritten digits as it trains — a widely-used reference for people learning generative models.</p>
               <ul class="tags"><li>PyTorch</li><li>TensorFlow</li><li>Generative</li></ul>
@@ -199,7 +241,7 @@
             <div class="feature-body">
               <div class="project-head">
                 <h3><a href="https://github.com/diegoalejogm/deep-q-learning" target="_blank" rel="noopener">Deep Q-Learning</a></h3>
-                <span class="stars" title="GitHub stars">★ 85</span>
+                <span class="stars" title="GitHub stars" data-repo="diegoalejogm/deep-q-learning">★ 85</span>
               </div>
               <p>A PyTorch implementation of Deep Q-Learning with experience replay, training an agent to play Atari games directly from raw pixels — following DeepMind's classic architecture, shown here.</p>
               <ul class="tags"><li>PyTorch</li><li>Deep RL</li><li>Atari</li></ul>
@@ -211,7 +253,7 @@
           <li class="project">
             <div class="project-head">
               <h3><a href="https://github.com/diegoalejogm/Reinforcement-Learning" target="_blank" rel="noopener">Reinforcement Learning</a></h3>
-              <span class="stars" title="GitHub stars">★ 160</span>
+              <span class="stars" title="GitHub stars" data-repo="diegoalejogm/Reinforcement-Learning">★ 160</span>
             </div>
             <p>Clean Python implementations of the core RL algorithms, following Sutton &amp; Barto's classic textbook — dynamic programming, Monte Carlo, temporal difference, and more.</p>
             <ul class="tags"><li>Python</li><li>RL</li><li>Education</li></ul>
