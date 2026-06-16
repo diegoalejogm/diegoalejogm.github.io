@@ -67,6 +67,7 @@
       <ul class="nav-links" id="navLinks">
         <li><a href="#about">About</a></li>
         <li><a href="#experience">Experience</a></li>
+        <li><a href="#research">Research</a></li>
         <li><a href="#work">Work</a></li>
         <li><a href="#writing">Writing</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -97,8 +98,15 @@
             and understandable at planetary scale. Outside work I build
             open-source ML that thousands of people learn from.
           </p>
+          <p class="hero-focus">
+            Increasingly focused on <strong>AI safety and interpretability</strong>:
+            understanding what models do internally, steering their behavior, and
+            building evaluations we can trust.
+          </p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="#contact">Get in touch</a>
+            <!-- TODO: when you have a CV PDF, drop it at assets/cv.pdf, then change the
+                 href below to "assets/cv.pdf" and the label to "Download CV". -->
             <a class="btn btn-ghost" id="resumeLink" href="https://www.linkedin.com/in/diegoalejogm" target="_blank" rel="noopener">
               Résumé
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M17 7H8M17 7v9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -153,7 +161,7 @@
               </div>
               <div>
                 <dt>Focus</dt>
-                <dd>Multimodal LLMs · Safety · Generative models</dd>
+                <dd>AI safety · Interpretability · Evaluations</dd>
               </div>
               <div>
                 <dt>Tools</dt>
@@ -174,7 +182,11 @@
         <ol class="timeline">
           <li class="role">
             <div class="role-head">
-              <h3>Senior Machine Learning Engineer</h3>
+              <div class="role-title">
+                <h3>Senior Machine Learning Engineer</h3>
+                <!-- TODO: add dates, e.g. 2022 – Present -->
+                <span class="role-date"></span>
+              </div>
               <span class="role-org">Google · YouTube</span>
             </div>
             <ul class="role-points">
@@ -188,7 +200,11 @@
 
           <li class="role">
             <div class="role-head">
-              <h3>Machine Learning Engineer</h3>
+              <div class="role-title">
+                <h3>Machine Learning Engineer</h3>
+                <!-- TODO: add dates, e.g. 2019 – 2022 -->
+                <span class="role-date"></span>
+              </div>
               <span class="role-org">Google · YouTube</span>
             </div>
             <ul class="role-points">
@@ -200,7 +216,11 @@
 
           <li class="role">
             <div class="role-head">
-              <h3>Researcher &amp; Teaching Assistant</h3>
+              <div class="role-title">
+                <h3>Researcher &amp; Teaching Assistant</h3>
+                <!-- TODO: add dates, e.g. 2016 – 2018 -->
+                <span class="role-date"></span>
+              </div>
               <span class="role-org">Universidad de los Andes</span>
             </div>
             <ul class="role-points">
@@ -213,11 +233,39 @@
       </div>
     </section>
 
-    <!-- Work / Projects -->
-    <section class="section" id="work">
+    <!-- Current research -->
+    <section class="section" id="research">
       <div class="container">
-        <h2 class="section-title"><span class="section-num">03</span> Selected work</h2>
-        <p class="section-sub">Open-source projects, used and starred by thousands.</p>
+        <h2 class="section-title"><span class="section-num">03</span> Current research</h2>
+        <p class="section-sub">What I'm digging into right now.</p>
+
+        <article class="research-card">
+          <div class="research-head">
+            <h3><a href="https://github.com/diegoalejogm/persona_vectors" target="_blank" rel="noopener">Persona vectors for implicit elicitation</a></h3>
+            <span class="badge-progress">In progress</span>
+          </div>
+          <p>
+            Building on Anthropic's
+            <a href="https://github.com/safety-research/persona_vectors" target="_blank" rel="noopener">safety-research persona&#8209;vectors</a>
+            work, I'm investigating whether persona vectors can <strong>monitor implicitly eliciting
+            prompts</strong>: cases where a trait such as sycophancy is induced indirectly through
+            roleplay or framing rather than explicit instructions. The question I'm probing is how
+            robust activation-level monitoring stays when the elicitation is implicit.
+          </p>
+          <p class="research-note">
+            Active, early-stage work, aiming for a first write-up in the coming weeks. The repository
+            reflects the current state as it evolves.
+          </p>
+          <ul class="tags"><li>LLMs</li><li>Interpretability</li><li>AI Safety</li><li>Evaluations</li></ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- Work / Projects -->
+    <section class="section section-alt" id="work">
+      <div class="container">
+        <h2 class="section-title"><span class="section-num">04</span> Selected work</h2>
+        <p class="section-sub">Open-source implementations and educational references, used and starred by thousands.</p>
 
         <div class="featured">
           <article class="feature">
@@ -261,15 +309,6 @@
 
           <li class="project">
             <div class="project-head">
-              <h3><a href="https://github.com/diegoalejogm/persona_vectors" target="_blank" rel="noopener">Persona Vectors</a></h3>
-              <span class="stars" title="research">research</span>
-            </div>
-            <p>Monitoring and controlling character traits in language models: work on steering and understanding the personas that emerge inside LLMs.</p>
-            <ul class="tags"><li>LLMs</li><li>Interpretability</li><li>Safety</li></ul>
-          </li>
-
-          <li class="project">
-            <div class="project-head">
               <h3><a href="https://github.com/diegoalejogm/crts-transient-recognition" target="_blank" rel="noopener">Transient Recognition</a></h3>
               <span class="stars" title="research">research</span>
             </div>
@@ -290,9 +329,9 @@
     </section>
 
     <!-- Writing -->
-    <section class="section section-alt" id="writing">
+    <section class="section" id="writing">
       <div class="container">
-        <h2 class="section-title"><span class="section-num">04</span> Writing &amp; research</h2>
+        <h2 class="section-title"><span class="section-num">05</span> Writing &amp; research</h2>
         <p class="section-sub">Explaining the ideas I find most interesting.</p>
         <ul class="writing-list">
           <li>
@@ -324,9 +363,9 @@
     </section>
 
     <!-- Contact -->
-    <section class="section" id="contact">
+    <section class="section section-alt" id="contact">
       <div class="container contact-inner">
-        <h2 class="section-title"><span class="section-num">05</span> Get in touch</h2>
+        <h2 class="section-title"><span class="section-num">06</span> Get in touch</h2>
         <p class="contact-lede">
           I'm always happy to talk about machine learning, open source, or
           interesting problems. The fastest way to reach me is email.
