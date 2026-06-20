@@ -241,6 +241,60 @@ ul { list-style: none; }
 .research-note { font-size: 0.92rem !important; color: var(--text-soft) !important; font-style: italic; }
 .research-card .tags { margin-top: 18px; }
 
+/* ---------- Project context label + proof links ---------- */
+.project-context {
+  font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.07em;
+  color: var(--text-faint); font-weight: 600; margin-bottom: 8px;
+}
+.project-links { margin-top: 16px; display: flex; flex-wrap: wrap; gap: 18px; }
+.project-links a {
+  font-size: 0.85rem; font-weight: 600; color: var(--accent);
+  display: inline-flex; align-items: center; gap: 6px; transition: opacity 0.2s ease;
+}
+.project-links a:hover { opacity: 0.7; }
+
+/* ---------- Case study page ---------- */
+.case { max-width: 760px; }
+.case-back {
+  display: inline-block; margin-bottom: 28px; font-size: 0.9rem; font-weight: 500;
+  color: var(--text-soft); transition: color 0.2s ease;
+}
+.case-back:hover { color: var(--accent); }
+.case-title-row { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin: 8px 0 18px; }
+.case-title { font-size: clamp(1.9rem, 5vw, 2.8rem); font-weight: 800; letter-spacing: -0.025em; line-height: 1.08; }
+.case-lede { font-size: 1.2rem; line-height: 1.6; color: var(--text-soft); max-width: 62ch; }
+.case-lede a { color: var(--accent); font-weight: 600; }
+.case-tags { margin-top: 22px; }
+.case-links { margin-top: 18px; }
+.case-rule { border: none; border-top: 1px solid var(--border); margin: 40px 0; }
+
+.case-body h2 {
+  font-size: 1.35rem; font-weight: 700; letter-spacing: -0.01em;
+  margin: 38px 0 14px; color: var(--text);
+}
+.case-body p { margin-bottom: 18px; color: var(--text-soft); font-size: 1.06rem; line-height: 1.7; }
+.case-body strong { color: var(--text); font-weight: 600; }
+.case-body a { color: var(--accent); font-weight: 500; text-decoration: underline; text-underline-offset: 2px; }
+.case-body ul { margin: 0 0 18px; padding-left: 4px; display: grid; gap: 10px; }
+.case-body li {
+  position: relative; padding-left: 22px; color: var(--text-soft); font-size: 1.04rem; line-height: 1.6;
+}
+.case-body li::before {
+  content: ""; position: absolute; left: 2px; top: 0.62em;
+  width: 6px; height: 6px; border-radius: 50%; background: var(--accent);
+}
+.case-quote {
+  margin: 22px 0; padding: 18px 24px; border-left: 3px solid var(--accent);
+  background: var(--accent-soft); border-radius: 0 var(--radius) var(--radius) 0;
+  font-family: var(--font-serif); font-size: 1.3rem; line-height: 1.5; color: var(--text);
+}
+.case-status {
+  margin: 8px 0 4px; padding: 20px 24px;
+  border: 1px dashed color-mix(in srgb, var(--accent) 40%, transparent);
+  border-radius: var(--radius); background: var(--accent-soft);
+}
+.case-status .research-note { margin: 0; font-size: 0.98rem !important; }
+
 /* ---------- Experience / Timeline ---------- */
 .timeline { display: grid; gap: 16px; counter-reset: role; }
 .role {
