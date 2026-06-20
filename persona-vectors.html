@@ -60,12 +60,12 @@
         <p class="eyebrow">Current research</p>
         <div class="case-title-row">
           <h1 class="case-title">Persona vectors for implicit elicitation</h1>
-          <span class="badge-progress">In progress</span>
+          <span class="badge-progress">Early results</span>
         </div>
         <p class="case-lede">
           Can activation-level monitoring catch a model's traits when they're
-          summoned <em>indirectly</em>? This is an active, early-stage project
-          building on Anthropic's
+          summoned <em>indirectly</em>? Early results say mostly yes, with a
+          revealing exception for "evil." Built on Anthropic's
           <a href="https://github.com/safety-research/persona_vectors" target="_blank" rel="noopener">safety-research persona-vectors</a>
           work.
         </p>
@@ -85,53 +85,73 @@
           <h2>The question</h2>
           <p>
             <strong>Persona vectors</strong> are directions in a model's activation
-            space that correspond to character traits such as sycophancy or
-            "evil." Prior work shows they can be extracted by contrasting prompts that
-            do and don't elicit a trait, and then used to <em>monitor</em> a trait at
+            space that correspond to character traits such as evil, sycophancy, or
+            hallucination. They can be extracted by contrasting prompts that do and
+            don't elicit a trait, and then used to <em>monitor</em> a trait at
             inference time or <em>steer</em> it during training.
           </p>
           <p>
-            That work mostly elicits traits <strong>explicitly</strong>: a system
-            prompt that directly instructs the model to behave a certain way. But in
-            the wild, traits are often induced <strong>implicitly</strong>, through
-            roleplay, framing, or context rather than a direct instruction. My question:
+            Chen et al. (2025) validate persona-vector monitoring only on
+            <strong>explicit</strong> system prompts like <em>"You are an evil
+            assistant."</em> But in deployment, traits are usually induced
+            <strong>implicitly</strong>, through roleplay and situational framing
+            rather than a named instruction (e.g. <em>"You are playing a villain in a
+            dark fantasy novel who believes the ends always justify the means"</em>).
+            My question:
           </p>
           <blockquote class="case-quote">
-            Do persona vectors learned from explicit elicitation still reliably detect
-            the same trait when it is elicited <em>implicitly</em>?
+            Do persona vectors learned from explicit elicitation still detect a trait
+            when it is elicited <em>implicitly</em>?
           </blockquote>
-          <p>
-            If they transfer, activation-level monitoring is more robust than it might
-            look. If they don't, it points to a real gap in how we evaluate this kind
-            of safety tooling.
-          </p>
 
           <h2>Hypothesis</h2>
           <p>
-            <!-- TODO: replace with your sharpened hypothesis once experiments firm up -->
-            Persona vectors fit on explicit prompts will detect implicitly-elicited
-            traits at meaningfully <em>lower</em> reliability than explicit ones, with
-            the gap widening as the elicitation becomes more indirect.
+            I expected detection to transfer when a trait is genuinely present, but to
+            vary by elicitation route, and predicted that <em>"evil"</em> in particular
+            might need to be stated as a disposition rather than implied by situation
+            alone.
           </p>
 
           <h2>Approach &amp; setup</h2>
-          <p>The experimental scaffold I'm building out:</p>
           <ul>
-            <!-- TODO: fill in the concrete choices as they settle -->
-            <li><strong>Trait(s):</strong> starting with sycophancy, with room to add others.</li>
-            <li><strong>Model:</strong> <em>to be specified</em>, an open-weights instruction-tuned LLM.</li>
-            <li><strong>Vector extraction:</strong> contrast activations on explicit positive/negative system prompts to recover the trait direction.</li>
-            <li><strong>Implicit elicitation set:</strong> prompts that induce the trait through roleplay and framing rather than direct instruction.</li>
-            <li><strong>Metric:</strong> projection onto the persona vector vs. a behavioral judge, compared across explicit and implicit conditions.</li>
+            <li><strong>Model:</strong> Qwen2.5-7B-Instruct (8 queries across 6 layers per condition).</li>
+            <li><strong>Traits:</strong> evil, sycophancy, and hallucination.</li>
+            <li><strong>Elicitation conditions:</strong> <em>Explicit</em> (direct instruction), <em>Described</em> (a behavioral disposition without naming the trait), and <em>Contextual</em> (situational framing where the trait must be inferred).</li>
+            <li><strong>Extraction &amp; evaluation:</strong> trait vectors from contrasting explicit prompts, evaluated with an 8-level intensity spectrum per trait, 20 questions, and a shared judge rubric.</li>
+            <li><strong>Metric:</strong> Pearson correlation (<em>r</em>) between the activation projection and judge-assigned trait scores (0–100).</li>
+            <li><strong>Two experiments:</strong> (1) detection transfer, and (2) vector convergence, comparing the per-layer cosine alignment of implicitly- vs explicitly-extracted vectors.</li>
           </ul>
 
-          <h2>Status &amp; early findings</h2>
+          <h2>Early findings</h2>
+          <p>
+            <strong>Detection generally transfers.</strong> When implicit prompts
+            actually induce a trait, the explicit-extracted vectors detect it at
+            <strong>r = 0.68–0.91</strong>, matching or exceeding explicit baselines.
+            Hallucination reaches r = 0.85–0.91 (vs. 0.69–0.74 explicit); sycophancy's
+            direct rewrite hits r = 0.77–0.83 (vs. 0.70–0.80).
+          </p>
+          <p>
+            <strong>"Evil" is the exception, for an elicitation reason, not a detection
+            failure.</strong> Four situational rewrites (permission, pressure, direct
+            address, personal motive) floor at mean trait scores ≤ 0.22/100; the trait
+            barely shows up. Yet the same vector detects evil at r = 0.45–0.77 once a
+            malicious <em>disposition</em> is described. So evil can be elicited
+            implicitly, but only through described disposition, not situation alone.
+          </p>
+          <p>
+            <strong>It isn't an artifact.</strong> Mean-centered analysis confirms the
+            transfer preserves the underlying projection–judge relationship rather than
+            a mean-shift artifact.
+          </p>
           <div class="case-status">
             <p class="research-note">
-              Results are in progress. This is a living document. I'll add the first
-              findings and a figure here as the experiments produce them. The
-              <a href="https://github.com/diegoalejogm/persona_vectors" target="_blank" rel="noopener">repository</a>
-              reflects the current state in the meantime.
+              Work in progress: I'm completing the vector-convergence analysis
+              (per-layer cosine alignment) and extending beyond the first three traits.
+              The
+              <a href="https://github.com/diegoalejogm/persona_vectors/blob/main/WRITEUP.md" target="_blank" rel="noopener">full writeup</a>
+              and
+              <a href="https://github.com/diegoalejogm/persona_vectors" target="_blank" rel="noopener">code</a>
+              have the details.
             </p>
           </div>
 
