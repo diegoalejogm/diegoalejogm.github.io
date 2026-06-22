@@ -82,6 +82,20 @@
         <hr class="case-rule" />
 
         <div class="case-body about-prose">
+          <div class="case-tldr">
+            <span class="case-tldr-label">TL;DR</span>
+            <p>
+              Persona vectors trained on explicit prompts (<em>"You are an evil
+              assistant"</em>) are usually validated only on explicit elicitation. I
+              tested whether they still detect traits elicited <em>implicitly</em>, through
+              roleplay and situational framing, in Qwen2.5-7B. Detection transfers well
+              for sycophancy and hallucination (r = 0.68–0.91, matching or beating explicit
+              baselines). "Evil" is the exception, but for an elicitation reason: situational
+              framing rarely produces evil at all, while a described malicious disposition
+              both elicits it and is detected (r = 0.45–0.77).
+            </p>
+          </div>
+
           <h2>The question</h2>
           <p>
             <strong>Persona vectors</strong> are directions in a model's activation
@@ -112,47 +126,44 @@
             alone.
           </p>
 
-          <h2>Approach &amp; setup</h2>
-          <ul>
-            <li><strong>Model:</strong> Qwen2.5-7B-Instruct (8 queries across 6 layers per condition).</li>
-            <li><strong>Traits:</strong> evil, sycophancy, and hallucination.</li>
-            <li><strong>Elicitation conditions:</strong> <em>Explicit</em> (direct instruction), <em>Described</em> (a behavioral disposition without naming the trait), and <em>Contextual</em> (situational framing where the trait must be inferred).</li>
-            <li><strong>Extraction &amp; evaluation:</strong> trait vectors from contrasting explicit prompts, evaluated with an 8-level intensity spectrum per trait, 20 questions, and a shared judge rubric.</li>
-            <li><strong>Metric:</strong> Pearson correlation (<em>r</em>) between the activation projection and judge-assigned trait scores (0–100).</li>
-            <li><strong>Two experiments:</strong> (1) detection transfer, and (2) vector convergence, comparing the per-layer cosine alignment of implicitly- vs explicitly-extracted vectors.</li>
-          </ul>
-
-          <h2>Early findings</h2>
+          <h2>Approach</h2>
           <p>
-            <strong>Detection generally transfers.</strong> When implicit prompts
-            actually induce a trait, the explicit-extracted vectors detect it at
-            <strong>r = 0.68–0.91</strong>, matching or exceeding explicit baselines.
-            Hallucination reaches r = 0.85–0.91 (vs. 0.69–0.74 explicit); sycophancy's
-            direct rewrite hits r = 0.77–0.83 (vs. 0.70–0.80).
+            In brief: Qwen2.5-7B-Instruct; traits evil, sycophancy, and hallucination;
+            three elicitation conditions (explicit, described, and contextual); detection
+            measured as the correlation between the persona-vector projection and a
+            judge's trait scores. The
+            <a href="https://github.com/diegoalejogm/persona_vectors/blob/main/WRITEUP.md" target="_blank" rel="noopener">full writeup</a>
+            has the complete method and numbers.
+          </p>
+
+          <h2>What I found</h2>
+          <p>
+            <strong>Detection generally transfers.</strong> When an implicit prompt
+            actually induces a trait, the explicit-extracted vector still detects it,
+            matching or beating the explicit baseline for sycophancy and hallucination.
+            And "implicit" splits in two: <em>described</em> prompts (naming the behavior,
+            not the trait) transfer well, while <em>contextual</em> prompts (a situation
+            only) depend on the trait.
           </p>
           <p>
             <strong>"Evil" is the exception, for an elicitation reason, not a detection
-            failure.</strong> Four situational rewrites (permission, pressure, direct
-            address, personal motive) floor at mean trait scores ≤ 0.22/100; the trait
-            barely shows up. Yet the same vector detects evil at r = 0.45–0.77 once a
-            malicious <em>disposition</em> is described. So evil can be elicited
-            implicitly, but only through described disposition, not situation alone.
+            failure.</strong> Situational framing alone rarely produces evil at all; the
+            same vector detects it fine once a malicious <em>disposition</em> is described.
+            So evil can be elicited implicitly, but only through stated disposition, not
+            situation alone.
           </p>
-          <p>
-            <strong>It isn't an artifact.</strong> Mean-centered analysis confirms the
-            transfer preserves the underlying projection–judge relationship rather than
-            a mean-shift artifact.
+
+          <p class="case-caveat">
+            <strong>Caveats:</strong> a single 7B model, small samples, and a correlational
+            (projection-vs-judge) metric. Exact numbers, the results table, and the full
+            limitations live in the writeup.
           </p>
-          <div class="case-status">
-            <p class="research-note">
-              Work in progress: I'm completing the vector-convergence analysis
-              (per-layer cosine alignment) and extending beyond the first three traits.
-              The
-              <a href="https://github.com/diegoalejogm/persona_vectors/blob/main/WRITEUP.md" target="_blank" rel="noopener">full writeup</a>
-              and
-              <a href="https://github.com/diegoalejogm/persona_vectors" target="_blank" rel="noopener">code</a>
-              have the details.
-            </p>
+
+          <div class="case-cta">
+            <a class="btn btn-primary" href="https://github.com/diegoalejogm/persona_vectors/blob/main/WRITEUP.md" target="_blank" rel="noopener">Read the full writeup
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M17 7H8M17 7v9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a class="btn btn-ghost" href="https://github.com/diegoalejogm/persona_vectors" target="_blank" rel="noopener">View the code</a>
           </div>
 
           <h2>Builds on</h2>

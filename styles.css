@@ -295,6 +295,25 @@ ul { list-style: none; }
 }
 .case-status .research-note { margin: 0; font-size: 0.98rem !important; }
 
+.case-tldr {
+  margin: 0 0 10px; padding: 20px 24px; border-radius: var(--radius);
+  background: var(--accent-soft);
+  border: 1px solid color-mix(in srgb, var(--accent) 25%, transparent);
+}
+.case-tldr-label {
+  display: inline-block; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--accent); margin-bottom: 8px;
+}
+.case-tldr p { margin: 0 !important; color: var(--text) !important; font-size: 1.05rem; line-height: 1.6; }
+
+.case-caveat {
+  font-size: 0.95rem; color: var(--text-soft); line-height: 1.6;
+  padding: 14px 20px; border-left: 2px solid var(--border);
+  background: var(--bg-alt); border-radius: 0 8px 8px 0; margin: 8px 0 0;
+}
+.case-caveat strong { color: var(--text); }
+.case-cta { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 30px; }
+
 /* ---------- Experience / Timeline ---------- */
 .timeline { display: grid; gap: 16px; counter-reset: role; }
 .role {
