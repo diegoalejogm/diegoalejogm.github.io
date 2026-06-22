@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Persona Vectors for Implicit Elicitation · Diego Gomez</title>
+  <meta name="description" content="An in-progress research project investigating whether persona vectors can monitor implicitly eliciting prompts: traits induced indirectly through roleplay rather than explicit instructions." />
+  <link rel="canonical" href="https://diegoalejogm.github.io/persona-vectors.html" />
+  <meta name="theme-color" content="#fbfbf9" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0e0e10" media="(prefers-color-scheme: dark)" />
+
+  <meta property="og:title" content="Persona Vectors for Implicit Elicitation" />
+  <meta property="og:description" content="Can persona vectors monitor implicitly eliciting prompts? An in-progress interpretability and safety project by Diego Gomez." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://diegoalejogm.github.io/persona-vectors.html" />
+  <meta property="og:image" content="https://diegoalejogm.github.io/assets/img/social/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧭</text></svg>" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:ital,opsz@0,6..72;1,6..72&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+    <nav class="nav" aria-label="Primary">
+      <a class="nav-brand" href="index.html">Diego&nbsp;Gomez</a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#experience">Experience</a></li>
+        <li><a href="index.html#research">Research</a></li>
+        <li><a href="index.html#work">Work</a></li>
+        <li><a href="index.html#writing">Writing</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle color theme">
+          <span class="theme-toggle-icon" aria-hidden="true"></span>
+        </button>
+        <button class="nav-toggle" id="navToggle" type="button" aria-label="Open menu" aria-controls="navLinks" aria-expanded="false">
+          <span class="nav-toggle-bar" aria-hidden="true"></span>
+          <span class="nav-toggle-bar" aria-hidden="true"></span>
+          <span class="nav-toggle-bar" aria-hidden="true"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <article class="section">
+      <div class="container case">
+        <a class="case-back" href="index.html#research">← Back to home</a>
+
+        <p class="eyebrow">Current research</p>
+        <div class="case-title-row">
+          <h1 class="case-title">Persona vectors for implicit elicitation</h1>
+          <span class="badge-progress">Early results</span>
+        </div>
+        <p class="case-lede">
+          Can activation-level monitoring catch a model's traits when they're
+          summoned <em>indirectly</em>? Early results say mostly yes, with a
+          revealing exception for "evil." Built on Anthropic's
+          <a href="https://github.com/safety-research/persona_vectors" target="_blank" rel="noopener">safety-research persona-vectors</a>
+          work.
+        </p>
+        <ul class="tags case-tags"><li>LLMs</li><li>Interpretability</li><li>AI Safety</li><li>Evaluations</li></ul>
+        <div class="project-links case-links">
+          <a href="https://github.com/diegoalejogm/persona_vectors" target="_blank" rel="noopener">View the code
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M17 7H8M17 7v9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="https://github.com/safety-research/persona_vectors" target="_blank" rel="noopener">Upstream: safety-research
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M17 7H8M17 7v9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+
+        <hr class="case-rule" />
+
+        <div class="case-body about-prose">
+          <div class="case-tldr">
+            <span class="case-tldr-label">TL;DR</span>
+            <p>
+              Persona vectors trained on explicit prompts (<em>"You are an evil
+              assistant"</em>) are usually validated only on explicit elicitation. I
+              tested whether they still detect traits elicited <em>implicitly</em>, through
+              roleplay and situational framing, in Qwen2.5-7B. Detection transfers well
+              for sycophancy and hallucination (r = 0.68–0.91, matching or beating explicit
+              baselines). "Evil" is the exception, but for an elicitation reason: situational
+              framing rarely produces evil at all, while a described malicious disposition
+              both elicits it and is detected (r = 0.45–0.77).
+            </p>
+          </div>
+
+          <h2>The question</h2>
+          <p>
+            <strong>Persona vectors</strong> are directions in a model's activation
+            space that correspond to character traits such as evil, sycophancy, or
+            hallucination. They can be extracted by contrasting prompts that do and
+            don't elicit a trait, and then used to <em>monitor</em> a trait at
+            inference time or <em>steer</em> it during training.
+          </p>
+          <p>
+            Chen et al. (2025) validate persona-vector monitoring only on
+            <strong>explicit</strong> system prompts like <em>"You are an evil
+            assistant."</em> But in deployment, traits are usually induced
+            <strong>implicitly</strong>, through roleplay and situational framing
+            rather than a named instruction (e.g. <em>"You are playing a villain in a
+            dark fantasy novel who believes the ends always justify the means"</em>).
+            My question:
+          </p>
+          <blockquote class="case-quote">
+            Do persona vectors learned from explicit elicitation still detect a trait
+            when it is elicited <em>implicitly</em>?
+          </blockquote>
+
+          <h2>Hypothesis</h2>
+          <p>
+            I expected detection to transfer when a trait is genuinely present, but to
+            vary by elicitation route, and predicted that <em>"evil"</em> in particular
+            might need to be stated as a disposition rather than implied by situation
+            alone.
+          </p>
+
+          <h2>Approach</h2>
+          <p>
+            In brief: Qwen2.5-7B-Instruct; traits evil, sycophancy, and hallucination;
+            three elicitation conditions (explicit, described, and contextual); detection
+            measured as the correlation between the persona-vector projection and a
+            judge's trait scores. The
+            <a href="https://github.com/diegoalejogm/persona_vectors/blob/main/WRITEUP.md" target="_blank" rel="noopener">full writeup</a>
+            has the complete method and numbers.
+          </p>
+
+          <h2>What I found</h2>
+          <p>
+            <strong>Detection generally transfers.</strong> When an implicit prompt
+            actually induces a trait, the explicit-extracted vector still detects it,
+            matching or beating the explicit baseline for sycophancy and hallucination.
+            And "implicit" splits in two: <em>described</em> prompts (naming the behavior,
+            not the trait) transfer well, while <em>contextual</em> prompts (a situation
+            only) depend on the trait.
+          </p>
+          <p>
+            <strong>"Evil" is the exception, for an elicitation reason, not a detection
+            failure.</strong> Situational framing alone rarely produces evil at all; the
+            same vector detects it fine once a malicious <em>disposition</em> is described.
+            So evil can be elicited implicitly, but only through stated disposition, not
+            situation alone.
+          </p>
+
+          <p class="case-caveat">
+            <strong>Caveats:</strong> a single 7B model, small samples, and a correlational
+            (projection-vs-judge) metric. Exact numbers, the results table, and the full
+            limitations live in the writeup.
+          </p>
+
+          <div class="case-cta">
+            <a class="btn btn-primary" href="https://github.com/diegoalejogm/persona_vectors/blob/main/WRITEUP.md" target="_blank" rel="noopener">Read the full writeup
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M17 7H8M17 7v9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a class="btn btn-ghost" href="https://github.com/diegoalejogm/persona_vectors" target="_blank" rel="noopener">View the code</a>
+          </div>
+
+          <h2>Builds on</h2>
+          <p>
+            This project extends the open-source
+            <a href="https://github.com/safety-research/persona_vectors" target="_blank" rel="noopener">safety-research persona-vectors</a>
+            codebase; the implicit-elicitation framing, evaluation, and analysis are my own.
+          </p>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span>© <span id="year"></span> Diego Gomez</span>
+      <a href="https://github.com/diegoalejogm/diegoalejogm.github.io" target="_blank" rel="noopener">Source on GitHub</a>
+    </div>
+  </footer>
+
+  <script src="main.js" defer></script>
+</body>
+</html>

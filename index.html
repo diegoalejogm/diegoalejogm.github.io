@@ -1,18 +1,433 @@
----
-layout: default
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diego Gomez, Machine Learning Engineer</title>
+  <meta name="description" content="Diego Gomez is a senior ML engineer at Google with 8+ years of experience, based in Paris. He trains and fine-tunes multimodal LLMs and works across LLM pretraining, post-training, interpretability, and evaluations." />
+  <meta name="author" content="Diego Gomez" />
+  <link rel="canonical" href="https://diegoalejogm.github.io/" />
+  <meta name="theme-color" content="#fbfbf9" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0e0e10" media="(prefers-color-scheme: dark)" />
 
-<div class="posts">
-  {% for post in site.posts %}
-    <article class="post">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Diego Gomez, Machine Learning Engineer" />
+  <meta property="og:description" content="Senior ML engineer at Google. LLM pretraining, post-training, interpretability, and evaluations." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://diegoalejogm.github.io/" />
+  <meta property="og:site_name" content="Diego Gomez" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:image" content="https://diegoalejogm.github.io/assets/img/social/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Diego Gomez, Senior Machine Learning Engineer" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@diegoalejogm" />
+  <meta name="twitter:title" content="Diego Gomez, Machine Learning Engineer" />
+  <meta name="twitter:description" content="Senior ML engineer at Google. LLM pretraining, post-training, interpretability, and evaluations." />
+  <meta name="twitter:image" content="https://diegoalejogm.github.io/assets/img/social/og-image.png" />
 
-      <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👋</text></svg>" />
 
-      <div class="entry">
-        {{ post.excerpt }}
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:ital,opsz@0,6..72;1,6..72&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Structured data: who this site is about -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Diego Gomez",
+    "url": "https://diegoalejogm.github.io/",
+    "image": "https://avatars.githubusercontent.com/u/4405152?v=4",
+    "jobTitle": "Senior Machine Learning Engineer",
+    "worksFor": { "@type": "Organization", "name": "Google" },
+    "homeLocation": { "@type": "Place", "name": "Paris, France" },
+    "alumniOf": [
+      { "@type": "CollegeOrUniversity", "name": "Universidad de los Andes" },
+      { "@type": "CollegeOrUniversity", "name": "University College London" }
+    ],
+    "knowsAbout": ["Large Language Models", "LLM Pretraining", "LLM Post-training", "Multimodal Machine Learning", "Interpretability", "AI Safety", "Evaluations", "Reinforcement Learning"],
+    "sameAs": [
+      "https://github.com/diegoalejogm",
+      "https://www.linkedin.com/in/diegoalejogm",
+      "https://twitter.com/diegoalejogm",
+      "https://medium.com/@diegoalejogm0"
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+    <nav class="nav" aria-label="Primary">
+      <a class="nav-brand" href="#top">Diego&nbsp;Gomez</a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#writing">Writing</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle color theme">
+          <span class="theme-toggle-icon" aria-hidden="true"></span>
+        </button>
+        <button class="nav-toggle" id="navToggle" type="button" aria-label="Open menu" aria-controls="navLinks" aria-expanded="false">
+          <span class="nav-toggle-bar" aria-hidden="true"></span>
+          <span class="nav-toggle-bar" aria-hidden="true"></span>
+          <span class="nav-toggle-bar" aria-hidden="true"></span>
+        </button>
       </div>
+    </nav>
+  </header>
 
-      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
-    </article>
-  {% endfor %}
-</div>
+  <main id="main">
+    <!-- Hero -->
+    <section class="hero" id="top">
+      <div class="container hero-inner">
+        <div class="hero-text">
+          <p class="eyebrow">Machine Learning Engineer · Paris, France</p>
+          <h1>Hi, I'm Diego.<br />I train language models and study what they <span class="accent">learn</span>.</h1>
+          <p class="lede">
+            I'm a senior machine learning engineer at <strong>Google</strong>
+            with <strong>8+ years</strong> building ML systems, where I train and
+            fine-tune multimodal LLMs that help keep <strong>YouTube</strong> safe
+            and understandable. Outside work I build open-source ML that thousands
+            of people learn from.
+          </p>
+          <p class="hero-focus">
+            Drawn to the full life cycle of <strong>large language models</strong>:
+            pretraining, post-training and alignment, interpretability, and the
+            evaluations that keep them safe and reliable.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contact">Get in touch</a>
+            <!-- TODO: when you have a CV PDF, drop it at assets/cv.pdf, then change the
+                 href below to "assets/cv.pdf" and the label to "Download CV". -->
+            <a class="btn btn-ghost" id="resumeLink" href="https://www.linkedin.com/in/diegoalejogm" target="_blank" rel="noopener">
+              Résumé
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M17 7H8M17 7v9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="hero-photo">
+          <img src="https://avatars.githubusercontent.com/u/4405152?v=4" alt="Portrait of Diego Gomez" width="220" height="220" loading="eager" />
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="section" id="about">
+      <div class="container">
+        <h2 class="section-title"><span class="section-num">01</span> About</h2>
+        <div class="about-grid">
+          <div class="about-prose">
+            <p>
+              I'm drawn to problems where learning from data beats hand-written
+              rules. At Google I train and fine-tune multimodal LLMs across 40+
+              safety and quality tasks for YouTube, building joint embeddings
+              over video, text, audio, and metadata that power the platform's
+              next generation of safety and understanding systems.
+            </p>
+            <p>
+              My passion for AI took hold during my first real taste of machine
+              learning: astronomy research at the Universidad de los Andes, where
+              I co-authored a paper in <em>The Astrophysical Journal</em>. That
+              fascination with how machines can learn has only grown as the field
+              has, and it's what pulls me toward the hardest open questions in
+              modern AI.
+            </p>
+            <p>
+              My open-source work has been used and starred by thousands of
+              people learning the same things I was once figuring out. I care
+              about making hard ideas legible, whether that's a clean
+              implementation, a clear diagram, or a well-written explainer.
+            </p>
+          </div>
+          <aside class="about-facts">
+            <dl>
+              <div>
+                <dt>Currently</dt>
+                <dd>Senior ML Engineer @ Google · YouTube</dd>
+              </div>
+              <div>
+                <dt>Experience</dt>
+                <dd>8+ years in machine learning</dd>
+              </div>
+              <div>
+                <dt>Education</dt>
+                <dd>Universidad de los Andes, <em>cum laude</em><br />UCL, London (exchange)</dd>
+              </div>
+              <div>
+                <dt>Based in</dt>
+                <dd>Paris, France 🇫🇷</dd>
+              </div>
+              <div>
+                <dt>Focus</dt>
+                <dd>LLM training · Evaluation · Efficiency · Interpretability</dd>
+              </div>
+              <div>
+                <dt>Tools</dt>
+                <dd>PyTorch · TensorFlow · Python · C++</dd>
+              </div>
+            </dl>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section class="section section-alt" id="experience">
+      <div class="container">
+        <h2 class="section-title"><span class="section-num">02</span> Experience</h2>
+        <p class="section-sub">Where I've spent my time, and what I shipped there.</p>
+
+        <ol class="timeline">
+          <li class="role">
+            <div class="role-head">
+              <div class="role-title">
+                <h3>Senior Machine Learning Engineer</h3>
+                <span class="role-date">2022 – Present</span>
+              </div>
+              <span class="role-org">Google · YouTube</span>
+            </div>
+            <ul class="role-points">
+              <li>Train and fine-tune multimodal LLMs across <strong>40+ safety and quality tasks</strong> for YouTube.</li>
+              <li>Designed an <strong>efficient training setup</strong> and model-efficiency work that <strong>saved substantial TPU compute</strong>.</li>
+              <li>Designed the <strong>evaluation methodology</strong> for a multitask model, bringing statistical rigor to quality measurement.</li>
+              <li>Set the team's <strong>quality roadmap</strong>.</li>
+              <li>Run large-scale distributed training across multimodal data, and mentor engineers and interns.</li>
+            </ul>
+          </li>
+
+          <li class="role">
+            <div class="role-head">
+              <div class="role-title">
+                <h3>Machine Learning Engineer</h3>
+                <span class="role-date">2018 – 2022</span>
+              </div>
+              <span class="role-org">Google · YouTube</span>
+            </div>
+            <ul class="role-points">
+              <li>Built training <strong>datasets from scratch</strong> and defined the <strong>content policies</strong> behind YouTube's safety classifiers.</li>
+              <li>Improved rater quality, driving <strong>significant gains in safety metrics</strong>.</li>
+              <li>Launched YouTube's <strong>first TPU-trained image classifiers</strong>, scaling to billions of thumbnails.</li>
+            </ul>
+          </li>
+
+          <li class="role">
+            <div class="role-head">
+              <div class="role-title">
+                <h3>Researcher &amp; Teaching Assistant</h3>
+                <span class="role-date">2017 – 2018</span>
+              </div>
+              <span class="role-org">Universidad de los Andes</span>
+            </div>
+            <ul class="role-points">
+              <li>Co-authored <em>MANTRA</em>, a machine-learning dataset for astronomical transient recognition, published in <em>The Astrophysical Journal</em>.</li>
+              <li>Open-sourced ~76k labeled light curves from the Catalina Real-Time Survey.</li>
+              <li>Taught data structures, algorithms, and calculus as a teaching assistant.</li>
+            </ul>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Current research -->
+    <section class="section" id="research">
+      <div class="container">
+        <h2 class="section-title"><span class="section-num">03</span> Current research</h2>
+        <p class="section-sub">What I'm digging into right now.</p>
+
+        <article class="research-card">
+          <div class="research-head">
+            <h3><a href="persona-vectors.html">Persona vectors for implicit elicitation</a></h3>
+            <span class="badge-progress">Early results</span>
+          </div>
+          <p>
+            Building on Anthropic's
+            <a href="https://github.com/safety-research/persona_vectors" target="_blank" rel="noopener">safety-research persona&#8209;vectors</a>
+            work, I'm investigating whether persona vectors can <strong>monitor implicitly eliciting
+            prompts</strong>: cases where a trait such as sycophancy is induced indirectly through
+            roleplay or framing rather than explicit instructions. The question I'm probing is how
+            robust activation-level monitoring stays when the elicitation is implicit.
+          </p>
+          <p class="research-note">
+            Early results (Qwen2.5-7B): explicit-extracted vectors largely detect
+            implicitly-elicited traits, with "evil" a revealing exception. Read the case study for details.
+          </p>
+          <ul class="tags"><li>LLMs</li><li>Interpretability</li><li>AI Safety</li><li>Evaluations</li></ul>
+          <div class="project-links">
+            <a href="persona-vectors.html">Read the case study
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a href="https://github.com/diegoalejogm/persona_vectors" target="_blank" rel="noopener">View the code
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M17 7H8M17 7v9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Work / Projects -->
+    <section class="section section-alt" id="work">
+      <div class="container">
+        <h2 class="section-title"><span class="section-num">04</span> Selected work</h2>
+        <p class="section-sub">Open-source implementations and educational references, used and starred by thousands.</p>
+
+        <div class="featured">
+          <article class="feature">
+            <a class="feature-media" href="https://github.com/diegoalejogm/build-llm" target="_blank" rel="noopener" aria-label="Build an LLM repository">
+              <img src="images/work/build-llm-attention.webp" alt="A causal self-attention matrix, the core mechanism of a transformer" width="800" height="450" loading="lazy" />
+            </a>
+            <div class="feature-body">
+              <div class="project-context">Personal project</div>
+              <div class="project-head">
+                <h3><a href="https://github.com/diegoalejogm/build-llm" target="_blank" rel="noopener">Build an LLM</a></h3>
+                <span class="stars" title="Jupyter notebooks">from scratch</span>
+              </div>
+              <p>A GPT-style large language model built from the ground up in PyTorch: tokenization, attention, the transformer architecture, pretraining, and instruction fine-tuning, end to end. The full modern LLM stack from first principles.</p>
+              <ul class="tags"><li>LLMs</li><li>Transformers</li><li>PyTorch</li></ul>
+            </div>
+          </article>
+
+          <article class="feature">
+            <a class="feature-media feature-media-fit" href="https://github.com/diegoalejogm/gans" target="_blank" rel="noopener" aria-label="GANs repository">
+              <img src="images/work/gans-mnist.webp" alt="A DCGAN learning to generate handwritten digits over training" width="420" height="420" loading="lazy" />
+            </a>
+            <div class="feature-body">
+              <div class="project-context">Open source</div>
+              <div class="project-head">
+                <h3><a href="https://github.com/diegoalejogm/gans" target="_blank" rel="noopener">GANs</a></h3>
+                <span class="stars" title="GitHub stars" data-repo="diegoalejogm/gans">★ 844</span>
+              </div>
+              <p>A widely-used reference for learning generative models, with 800+ stars. Built from scratch in both PyTorch and TensorFlow; the animation shows a DCGAN sharpening random noise into handwritten digits as it trains.</p>
+              <ul class="tags"><li>PyTorch</li><li>TensorFlow</li><li>Generative</li></ul>
+              <div class="project-links">
+                <a href="https://medium.com/ai-society/gans-from-scratch-1-a-deep-introduction-with-code-in-pytorch-and-tensorflow-cb03cdcdba0f" target="_blank" rel="noopener">Companion tutorial on Medium
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M17 7H8M17 7v9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <ul class="projects">
+          <li class="project">
+            <div class="project-context">Open source</div>
+            <div class="project-head">
+              <h3><a href="https://github.com/diegoalejogm/deep-q-learning" target="_blank" rel="noopener">Deep Q-Learning</a></h3>
+              <span class="stars" title="GitHub stars" data-repo="diegoalejogm/deep-q-learning">★ 85</span>
+            </div>
+            <p>Trains an agent to play Atari games from raw pixels: a PyTorch implementation of Deep Q-Learning with experience replay, following DeepMind's classic architecture.</p>
+            <ul class="tags"><li>PyTorch</li><li>Deep RL</li><li>Atari</li></ul>
+          </li>
+
+          <li class="project">
+            <div class="project-context">Open source</div>
+            <div class="project-head">
+              <h3><a href="https://github.com/diegoalejogm/Reinforcement-Learning" target="_blank" rel="noopener">Reinforcement Learning</a></h3>
+              <span class="stars" title="GitHub stars" data-repo="diegoalejogm/Reinforcement-Learning">★ 160</span>
+            </div>
+            <p>A popular learning resource for RL (160+ stars): clean Python implementations of the core algorithms from Sutton &amp; Barto, from dynamic programming to temporal-difference methods.</p>
+            <ul class="tags"><li>Python</li><li>RL</li><li>Education</li></ul>
+          </li>
+
+          <li class="project">
+            <div class="project-context">Universidad de los Andes</div>
+            <div class="project-head">
+              <h3><a href="https://github.com/diegoalejogm/crts-transient-recognition" target="_blank" rel="noopener">Transient Recognition</a></h3>
+              <span class="stars" title="research">research</span>
+            </div>
+            <p>The open dataset and benchmarks behind the MANTRA paper: ~76k labeled light curves for recognizing astronomical transients with machine learning.</p>
+            <ul class="tags"><li>ML</li><li>Astronomy</li><li>Classification</li></ul>
+            <div class="project-links">
+              <a href="https://iopscience.iop.org/article/10.3847/1538-4365/aba267/meta" target="_blank" rel="noopener">Read the paper
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M17 7H8M17 7v9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+            </div>
+          </li>
+
+          <li class="project">
+            <div class="project-context">GitHub</div>
+            <div class="project-head">
+              <h3><a href="https://github.com/diegoalejogm" target="_blank" rel="noopener">More on GitHub</a></h3>
+              <span class="stars">→</span>
+            </div>
+            <p>Notebooks, nanodegree solutions, and experiments. The full archive of what I've been building and breaking lives on my profile.</p>
+            <ul class="tags"><li>Explore</li></ul>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Writing -->
+    <section class="section" id="writing">
+      <div class="container">
+        <h2 class="section-title"><span class="section-num">05</span> Writing &amp; research</h2>
+        <p class="section-sub">A publication and explainers I've written over the years.</p>
+        <ul class="writing-list">
+          <li>
+            <a href="https://iopscience.iop.org/article/10.3847/1538-4365/aba267/meta" target="_blank" rel="noopener">
+              <span class="writing-title">MANTRA: A Machine-learning Reference Dataset for Astronomical Transients <span class="writing-badge">Paper</span></span>
+              <span class="writing-desc">Published in The Astrophysical Journal Supplement Series. An open dataset of ~76k labeled light curves from the Catalina Real-Time Transient Survey, benchmarked across SVMs, random forests, and neural networks.</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/diegoalejogm/gans" target="_blank" rel="noopener">
+              <span class="writing-title">Cyclic Generative Networks: CycleGANs</span>
+              <span class="writing-desc">How two adversarial networks learn to translate horses into zebras, and what cycle-consistency really buys you.</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://medium.com/ai-society/gans-from-scratch-1-a-deep-introduction-with-code-in-pytorch-and-tensorflow-cb03cdcdba0f" target="_blank" rel="noopener">
+              <span class="writing-title">GANs from Scratch</span>
+              <span class="writing-desc">A deep, code-first introduction to generative adversarial networks in PyTorch and TensorFlow.</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://medium.com/@diegoalejogm0" target="_blank" rel="noopener">
+              <span class="writing-title">More on Medium →</span>
+              <span class="writing-desc">Essays and tutorials on machine learning and the ideas behind it.</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section section-alt" id="contact">
+      <div class="container contact-inner">
+        <h2 class="section-title"><span class="section-num">06</span> Get in touch</h2>
+        <p class="contact-lede">
+          I'm always happy to talk about machine learning, open source, or
+          interesting problems. LinkedIn is the best way to reach me.
+        </p>
+        <a class="btn btn-primary btn-lg" href="https://www.linkedin.com/in/diegoalejogm" target="_blank" rel="noopener">Connect on LinkedIn</a>
+        <div class="social">
+          <a href="https://github.com/diegoalejogm" target="_blank" rel="noopener" aria-label="GitHub">GitHub</a>
+          <a href="https://www.linkedin.com/in/diegoalejogm" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a>
+          <a href="https://medium.com/@diegoalejogm0" target="_blank" rel="noopener" aria-label="Medium">Medium</a>
+          <a href="https://twitter.com/diegoalejogm" target="_blank" rel="noopener" aria-label="Twitter">Twitter</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span>© <span id="year"></span> Diego Gomez</span>
+      <a href="https://github.com/diegoalejogm/diegoalejogm.github.io" target="_blank" rel="noopener">Source on GitHub</a>
+    </div>
+  </footer>
+
+  <script src="main.js" defer></script>
+</body>
+</html>
