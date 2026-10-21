@@ -1,18 +1,142 @@
----
-layout: default
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diego Gomez, Machine Learning Engineer</title>
+  <meta name="description" content="Diego Gomez is a machine learning engineer at Google in Paris, working on multimodal models and researching LLM interpretability and safety." />
+  <meta name="author" content="Diego Gomez" />
+  <link rel="canonical" href="https://diegoalejogm.github.io/" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0e0e10" media="(prefers-color-scheme: dark)" />
 
-<div class="posts">
-  {% for post in site.posts %}
-    <article class="post">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Diego Gomez, Machine Learning Engineer" />
+  <meta property="og:description" content="Machine learning engineer at Google. Multimodal models, LLM interpretability, and safety." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://diegoalejogm.github.io/" />
+  <meta property="og:site_name" content="Diego Gomez" />
+  <meta property="og:image" content="https://diegoalejogm.github.io/assets/img/social/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Diego Gomez, Machine Learning Engineer" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://diegoalejogm.github.io/assets/img/social/og-image.png" />
 
-      <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👋</text></svg>" />
+  <link rel="stylesheet" href="styles.css" />
+  <script>
+    // Set the theme before first paint so dark-mode visitors don't see a light flash.
+    (function () {
+      var stored = null;
+      try { stored = localStorage.getItem("theme"); } catch (e) {}
+      var dark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      document.documentElement.setAttribute("data-theme", stored || (dark ? "dark" : "light"));
+    })();
+  </script>
 
-      <div class="entry">
-        {{ post.excerpt }}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Diego Gomez",
+    "url": "https://diegoalejogm.github.io/",
+    "jobTitle": "Machine Learning Engineer",
+    "worksFor": { "@type": "Organization", "name": "Google" },
+    "homeLocation": { "@type": "Place", "name": "Paris, France" },
+    "alumniOf": [
+      { "@type": "CollegeOrUniversity", "name": "Universidad de los Andes" },
+      { "@type": "CollegeOrUniversity", "name": "University College London" }
+    ],
+    "knowsAbout": ["Machine Learning", "Large Language Models", "Interpretability", "AI Safety"],
+    "sameAs": [
+      "https://github.com/diegoalejogm",
+      "https://www.linkedin.com/in/diegoalejogm",
+      "https://medium.com/@diegoalejogm0"
+    ]
+  }
+  </script>
+</head>
+<body class="op-body">
+  <main class="op">
+    <header class="op-hero">
+      <div class="op-hero-top">
+        <img class="op-photo" src="assets/img/photo.jpg" alt="" width="64" height="64" />
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle color theme">
+          <span class="theme-toggle-icon" aria-hidden="true"></span>
+        </button>
+      </div>
+      <h1>Diego Gomez</h1>
+      <p class="op-sub">Machine Learning Engineer at Google · Paris</p>
+      <p class="op-lede">
+        Multimodal LLMs at YouTube scale. LLM safety research in my personal time.
+      </p>
+      <p class="op-links">
+        <a href="https://www.linkedin.com/in/diegoalejogm" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/diegoalejogm" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://medium.com/@diegoalejogm0" target="_blank" rel="noopener">Medium</a>
+      </p>
+    </header>
+
+    <section class="op-section">
+      <h2>Experience</h2>
+
+      <div class="op-item">
+        <div class="op-row"><h3>Machine Learning Engineer · YouTube, Google</h3><span>2018 – now</span></div>
+        <p>Training and evaluating multimodal LLMs for video understanding.</p>
       </div>
 
-      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
-    </article>
-  {% endfor %}
-</div>
+      <div class="op-item">
+        <div class="op-row"><h3>ML Researcher · Universidad de los Andes</h3><span>2017 – 2018</span></div>
+        <p>Co-authored <a href="https://iopscience.iop.org/article/10.3847/1538-4365/aba267/meta" target="_blank" rel="noopener">MANTRA</a>, a dataset paper in <em>The Astrophysical Journal</em>.</p>
+      </div>
+    </section>
+
+    <section class="op-section" id="research">
+      <h2>Research</h2>
+      <div class="op-item">
+        <div class="op-row"><h3><a href="https://github.com/diegoalejogm/persona_vectors/blob/main/WRITING.md" target="_blank" rel="noopener">Persona vectors for implicit elicitation</a></h3><span>2026</span></div>
+        <p>
+          Detecting undesirable traits in LLMs when they're elicited indirectly, through roleplay.
+          <a href="https://github.com/diegoalejogm/persona_vectors/blob/main/WRITING.md" target="_blank" rel="noopener">Writeup</a> ·
+          <a href="https://github.com/diegoalejogm/persona_vectors" target="_blank" rel="noopener">Code</a>
+        </p>
+      </div>
+    </section>
+
+    <section class="op-section">
+      <h2>Open source</h2>
+      <ul class="op-list">
+        <li><a href="https://github.com/diegoalejogm/build-llm" target="_blank" rel="noopener">Build an LLM</a> <span>GPT-2-style model from scratch in PyTorch, pretraining to instruction tuning</span></li>
+        <li><a href="https://github.com/diegoalejogm/Reinforcement-Learning" target="_blank" rel="noopener">Reinforcement Learning</a> <span>Sutton &amp; Barto algorithms in Python (<span class="stars" data-repo="diegoalejogm/Reinforcement-Learning">★ 158</span>) and <a href="https://github.com/diegoalejogm/deep-q-learning" target="_blank" rel="noopener">deep Q-learning on Atari</a> in PyTorch (<span class="stars" data-repo="diegoalejogm/deep-q-learning">★ 85</span>)</span></li>
+        <li><a href="https://github.com/diegoalejogm/gans" target="_blank" rel="noopener">GANs</a> <span>PyTorch &amp; TensorFlow reference, <span class="stars" data-repo="diegoalejogm/gans">★ 843</span></span></li>
+      </ul>
+    </section>
+
+    <section class="op-section">
+      <h2>Community</h2>
+      <ul class="op-list">
+        <li><a href="https://apartresearch.com" target="_blank" rel="noopener">Apart Research</a> <span>judge and mentor, AI safety hackathons (2026 – now)</span></li>
+        <li><a href="https://towardsdatascience.com" target="_blank" rel="noopener">Towards Data Science</a> <span>writer, ML tutorials (2020 – 2022)</span></li>
+        <li>AI Society Colombia <span>co-founder; organized the country's first AI hackathon</span></li>
+      </ul>
+    </section>
+
+    <section class="op-section">
+      <h2>Education</h2>
+      <ul class="op-list">
+        <li>Universidad de los Andes <span>B.Sc. Computer Science &amp; Engineering, <em>cum laude</em></span></li>
+        <li>University College London <span>exchange, 2017 – 2018</span></li>
+        <li>BlueDot Impact <span>Technical AI Safety, 2025 – 2026</span></li>
+      </ul>
+    </section>
+
+    <footer class="op-footer">
+      <span>© <span id="year"></span> Diego Gomez</span>
+    </footer>
+  </main>
+
+  <script src="main.js" defer></script>
+</body>
+</html>
